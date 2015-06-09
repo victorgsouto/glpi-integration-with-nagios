@@ -77,27 +77,38 @@ define service{
 ```
 
 4- Modify the event handler files to include a GLPI username, password and GPLI server IP. Then move the files to your (/usr/share/nagios/event_handlers/) folder.
+
 	- manage-host-tickets.php
+	
 	- manage-service-tickets.php
 
 5º Now restart Nagios Services to apply to the new changes:
+
 	#/etc/init.d/nagios3 reload
 	
 
 6º Downloading the plug -in webservice of GLPI:
+
 	# cd /tmp
+	
 	# wgethttps://forge.indepnet.net/attachments/download/1907/glpi-webservices-1.4.3.tar.gz
+	
 	# tar -xvzfglpi-webservices-1.4.3.tar.gz
 
 7º Move the folder to the directory:	
+
 	# mv webservices/ /var/www/glpi/plugins/
 
 8º Make the installation of support xmlrpcpara PHP5 using the following command:
+
 	# apt-get install php5-xmlrpc	
 
 9º Installing and activating the plugin via the web interface GLPI:
+
 	- Configurar > Plugins;
+	
 	- Instalar;
+	
 	- Habilitar.
 
 10º Okay, now it's just simulate stop some host / service, a new ticket must be
